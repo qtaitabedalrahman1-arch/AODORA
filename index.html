@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عطور الأصالة | متجر العطور الفاخرة</title>
+  <meta name="description" content="اكتشف مجموعتنا الفاخرة من العطور العربية والعالمية. عطور أصيلة بجودة عالية وأسعار مميزة.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-1.5 0-2.7 1.2-2.7 2.7 0 .8.3 1.5.9 2L8 12l-2-1.5c-.3-.2-.7-.3-1-.3-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5c.4 0 .7-.1 1-.3L8 12l2 3.5c-.5.5-.8 1.2-.8 2 0 1.5 1.2 2.7 2.7 2.7s2.7-1.2 2.7-2.7c0-.8-.3-1.5-.8-2L16 12l2 1.5c.3.2.6.3 1 .3.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.4 0-.7.1-1 .3L16 12l-2.2-4.3c.6-.5.9-1.2.9-2C14.7 4.2 13.5 3 12 3z"/></svg>
+        <span>عطور الأصالة</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">الرئيسية</a></li>
+        <li><a href="#products">العطور</a></li>
+        <li><a href="#categories">التصنيفات</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-icon cart-btn" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <div class="user-menu">
+          <button class="btn btn-icon" id="userBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+          <div class="user-dropdown" id="userDropdown">
+            <!-- Will be populated by JS -->
+          </div>
+        </div>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>اكتشف عالم <span>العطور الفاخرة</span></h1>
+        <p>مجموعة مميزة من أرقى العطور العربية والعالمية، مصنوعة بعناية فائقة من أجود المكونات لتمنحك تجربة عطرية لا تُنسى.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">تسوق الآن</a>
+          <button class="btn btn-secondary" onclick="openChatbot()">ساعدني في الاختيار</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-decoration"></div>
+        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500" alt="عطر فاخر">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section features">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>توصيل سريع</h3>
+        <p>توصيل مجاني للطلبات فوق 300 ر.س</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>منتجات أصلية</h3>
+        <p>ضمان 100% على أصالة جميع العطور</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h3>تغليف فاخر</h3>
+        <p>تغليف أنيق مناسب للهدايا</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <h3>دعم على مدار الساعة</h3>
+        <p>فريق خدمة عملاء متميز</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section" id="products">
+    <div class="section-header">
+      <h2>عطورنا المميزة</h2>
+      <p>اختر من مجموعتنا الفاخرة من العطور الشرقية والغربية</p>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will be loaded here by JS -->
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section" id="categories" style="background: var(--white);">
+    <div class="section-header">
+      <h2>تصفح حسب التصنيف</h2>
+      <p>اختر التصنيف الذي يناسبك</p>
+    </div>
+    <div class="categories-grid">
+      <div class="category-card" onclick="filterByCategory('رجالي')">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400" alt="عطور رجالية">
+        <div class="category-overlay">
+          <h3>عطور رجالية</h3>
+        </div>
+      </div>
+      <div class="category-card" onclick="filterByCategory('نسائي')">
+        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400" alt="عطور نسائية">
+        <div class="category-overlay">
+          <h3>عطور نسائية</h3>
+        </div>
+      </div>
+      <div class="category-card" onclick="filterByCategory('للجنسين')">
+        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400" alt="عطور للجنسين">
+        <div class="category-overlay">
+          <h3>للجنسين</h3>
+        </div>
+      </div>
+      <div class="category-card" onclick="showAllProducts()">
+        <img src="https://images.unsplash.com/photo-1595425964071-2c1ecff1f688?w=400" alt="عروض خاصة">
+        <div class="category-overlay">
+          <h3>عروض خاصة</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="section-header">
+      <h2>تواصل معنا</h2>
+      <p>نسعد بتلقي استفساراتكم ومقترحاتكم</p>
+    </div>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <form id="contactForm" onsubmit="submitContactForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>الاسم</label>
+            <input type="text" name="name" required placeholder="أدخل اسمك">
+          </div>
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>الموضوع</label>
+          <input type="text" name="subject" required placeholder="موضوع الرسالة">
+        </div>
+        <div class="form-group">
+          <label>الرسالة</label>
+          <textarea name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">إرسال الرسالة</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color: var(--white);">
+          <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 3c-1.5 0-2.7 1.2-2.7 2.7 0 .8.3 1.5.9 2L8 12l-2-1.5c-.3-.2-.7-.3-1-.3-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5c.4 0 .7-.1 1-.3L8 12l2 3.5c-.5.5-.8 1.2-.8 2 0 1.5 1.2 2.7 2.7 2.7s2.7-1.2 2.7-2.7c0-.8-.3-1.5-.8-2L16 12l2 1.5c.3.2.6.3 1 .3.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.4 0-.7.1-1 .3L16 12l-2.2-4.3c.6-.5.9-1.2.9-2C14.7 4.2 13.5 3 12 3z"/></svg>
+          <span>عطور الأصالة</span>
+        </a>
+        <p>متجرك الأول للعطور الفاخرة في المملكة. نقدم أجود أنواع العطور العربية والعالمية بأسعار منافسة.</p>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="#products">العطور</a></li>
+          <li><a href="#categories">التصنيفات</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>خدمة العملاء</h4>
+        <ul>
+          <li><a href="#">سياسة الشحن</a></li>
+          <li><a href="#">سياسة الاستبدال</a></li>
+          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">طرق الدفع</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li><a href="tel:+966500000000">+966 50 000 0000</a></li>
+          <li><a href="mailto:info@perfume.com">info@perfume.com</a></li>
+          <li><a href="#">الرياض، المملكة العربية السعودية</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة &copy; 2024 عطور الأصالة</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>سلة التسوق</h2>
+      <button class="modal-close" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be loaded here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span id="cartTotal">0 ر.س</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">إتمام الطلب</button>
+    </div>
+  </div>
+
+  <!-- Chatbot -->
+  <button class="chatbot-btn" onclick="toggleChatbot()">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>
+  </button>
+
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <div class="chatbot-avatar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>
+      </div>
+      <div class="chatbot-info">
+        <h3>مساعد العطور</h3>
+        <p>متصل الآن</p>
+      </div>
+      <button class="chatbot-close" onclick="toggleChatbot()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <!-- Chat messages will be loaded here -->
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="اكتب رسالتك..." onkeypress="handleChatKeypress(event)">
+      <button onclick="sendChatMessage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" style="position: fixed; bottom: 24px; right: 24px; background: var(--black); color: var(--white); padding: 16px 24px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 3000;">
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حسابي |AODORA </title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-1.5 0-2.7 1.2-2.7 2.7 0 .8.3 1.5.9 2L8 12l-2-1.5c-.3-.2-.7-.3-1-.3-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5c.4 0 .7-.1 1-.3L8 12l2 3.5c-.5.5-.8 1.2-.8 2 0 1.5 1.2 2.7 2.7 2.7s2.7-1.2 2.7-2.7c0-.8-.3-1.5-.8-2L16 12l2 1.5c.3.2.6.3 1 .3.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.4 0-.7.1-1 .3L16 12l-2.2-4.3c.6-.5.9-1.2.9-2C14.7 4.2 13.5 3 12 3z"/></svg>
+        <span>عطور الأصالة</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#products">العطور</a></li>
+        <li><a href="index.html#categories">التصنيفات</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-icon cart-btn" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="btn btn-secondary" onclick="logout()">تسجيل خروج</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Dashboard -->
+  <main class="dashboard">
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-avatar" id="userAvatar">سأ</div>
+          <div class="sidebar-user">
+            <h3 id="userName">سارة أحمد</h3>
+            <p id="userEmail">user@perfume.com</p>
+          </div>
+        </div>
+        
+        <ul class="sidebar-nav">
+          <li>
+            <a href="#" class="active" onclick="showSection('overview')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+              نظرة عامة
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('orders')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              طلباتي
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('wishlist')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              المفضلة
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('profile')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              الملف الشخصي
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="dashboard-main">
+        <!-- Overview Section -->
+        <section id="overview-section">
+          <div class="dashboard-header">
+            <h1>مرحباً، <span id="welcomeName">سارة</span></h1>
+          </div>
+
+          <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-card">
+              <div class="icon gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <h3 id="myOrdersCount">0</h3>
+              <p>طلباتي</p>
+            </div>
+            <div class="stat-card">
+              <div class="icon green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <h3 id="myWishlistCount">0</h3>
+              <p>في المفضلة</p>
+            </div>
+            <div class="stat-card">
+              <div class="icon blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              </div>
+              <h3 id="myCartCount">0</h3>
+              <p>في السلة</p>
+            </div>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-header">
+              <h2>آخر طلباتي</h2>
+              <button class="btn btn-secondary" onclick="showSection('orders')">عرض الكل</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>المنتجات</th>
+                  <th>المبلغ</th>
+                  <th>الحالة</th>
+                  <th>التاريخ</th>
+                </tr>
+              </thead>
+              <tbody id="recentOrdersTable">
+                <!-- Will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-header">
+              <h2>من المفضلة</h2>
+              <button class="btn btn-secondary" onclick="showSection('wishlist')">عرض الكل</button>
+            </div>
+            <div class="products-grid" id="wishlistPreview" style="max-width: 100%; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+              <!-- Will be populated by JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders-section" class="hidden">
+          <div class="dashboard-header">
+            <h1>طلباتي</h1>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-header">
+              <h2>جميع الطلبات</h2>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>المنتجات</th>
+                  <th>المبلغ</th>
+                  <th>الحالة</th>
+                  <th>التاريخ</th>
+                  <th>العنوان</th>
+                </tr>
+              </thead>
+              <tbody id="allOrdersTable">
+                <!-- Will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Wishlist Section -->
+        <section id="wishlist-section" class="hidden">
+          <div class="dashboard-header">
+            <h1>المفضلة</h1>
+          </div>
+
+          <div class="products-grid" id="wishlistGrid" style="max-width: 100%;">
+            <!-- Will be populated by JS -->
+          </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="hidden">
+          <div class="dashboard-header">
+            <h1>الملف الشخصي</h1>
+          </div>
+
+          <div class="data-card">
+            <div class="modal-body">
+              <form id="profileForm" onsubmit="updateProfile(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="profileName" required>
+                  </div>
+                  <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="profileEmail" required>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>كلمة المرور الجديدة (اتركها فارغة للإبقاء على القديمة)</label>
+                  <input type="password" id="profilePassword" placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>سلة التسوق</h2>
+      <button class="modal-close" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span id="cartTotal">0 ر.س</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">إتمام الطلب</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" style="position: fixed; bottom: 24px; right: 24px; background: var(--black); color: var(--white); padding: 16px 24px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 3000;">
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if user is logged in
+      if (!store.currentUser) {
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      // Redirect admin to admin dashboard
+      if (store.currentUser.role === 'admin') {
+        window.location.href = 'admin.html';
+        return;
+      }
+      
+      // Load user info
+      document.getElementById('userName').textContent = store.currentUser.name;
+      document.getElementById('userEmail').textContent = store.currentUser.email;
+      document.getElementById('userAvatar').textContent = store.currentUser.avatar;
+      document.getElementById('welcomeName').textContent = store.currentUser.name.split(' ')[0];
+      document.getElementById('profileName').value = store.currentUser.name;
+      document.getElementById('profileEmail').value = store.currentUser.email;
+      
+      loadDashboardData();
+      updateCartUI();
+    });
+    
+    function loadDashboardData() {
+      const user = store.currentUser;
+      const orders = store.getUserOrders(user.id);
+      const wishlist = store.wishlist;
+      const cart = store.cart;
+      
+      // Stats
+      document.getElementById('myOrdersCount').textContent = orders.length;
+      document.getElementById('myWishlistCount').textContent = wishlist.length;
+      document.getElementById('myCartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+      
+      // Recent orders
+      const recentOrders = orders.slice(-3).reverse();
+      document.getElementById('recentOrdersTable').innerHTML = recentOrders.length > 0 
+        ? recentOrders.map(order => `
+          <tr>
+            <td>${order.id}</td>
+            <td>${order.items.map(i => i.name).join('، ')}</td>
+            <td>${formatPrice(order.total)}</td>
+            <td><span class="status-badge ${order.status}">${getStatusLabel(order.status)}</span></td>
+            <td>${order.date}</td>
+          </tr>
+        `).join('')
+        : '<tr><td colspan="5" style="text-align: center; color: var(--gray);">لا توجد طلبات بعد</td></tr>';
+      
+      // All orders
+      document.getElementById('allOrdersTable').innerHTML = orders.length > 0
+        ? orders.map(order => `
+          <tr>
+            <td>${order.id}</td>
+            <td>${order.items.map(i => `${i.name} (${i.quantity})`).join('، ')}</td>
+            <td>${formatPrice(order.total)}</td>
+            <td><span class="status-badge ${order.status}">${getStatusLabel(order.status)}</span></td>
+            <td>${order.date}</td>
+            <td>${order.address}</td>
+          </tr>
+        `).join('')
+        : '<tr><td colspan="6" style="text-align: center; color: var(--gray);">لا توجد طلبات بعد</td></tr>';
+      
+      // Wishlist preview
+      const wishlistProducts = wishlist.slice(0, 4).map(id => store.getProductById(id)).filter(Boolean);
+      document.getElementById('wishlistPreview').innerHTML = wishlistProducts.length > 0
+        ? wishlistProducts.map(product => createSmallProductCard(product)).join('')
+        : '<p style="grid-column: 1 / -1; text-align: center; color: var(--gray); padding: 40px;">لا توجد منتجات في المفضلة</p>';
+      
+      // Full wishlist
+      const allWishlistProducts = wishlist.map(id => store.getProductById(id)).filter(Boolean);
+      document.getElementById('wishlistGrid').innerHTML = allWishlistProducts.length > 0
+        ? allWishlistProducts.map(product => createProductCard(product)).join('')
+        : '<div style="grid-column: 1 / -1; text-align: center; color: var(--gray); padding: 60px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="64" height="64" style="margin: 0 auto 16px; display: block;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><h3>المفضلة فارغة</h3><p>أضف منتجات للمفضلة لمشاهدتها هنا</p><a href="index.html#products" class="btn btn-primary" style="margin-top: 16px;">تصفح العطور</a></div>';
+    }
+    
+    function createSmallProductCard(product) {
+      return `
+        <div class="product-card" onclick="window.location.href='product.html?id=${product.id}'" style="cursor: pointer;">
+          <div class="product-image" style="height: 160px;">
+            <img src="${product.images[0]}" alt="${product.name}" style="max-height: 120px;">
+          </div>
+          <div class="product-info" style="padding: 12px;">
+            <div class="product-brand">${product.brand}</div>
+            <h3 class="product-name" style="font-size: 14px;">${product.name}</h3>
+            <div class="product-price">
+              <span class="current" style="font-size: 16px;">${formatPrice(product.price)}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    function createProductCard(product) {
+      const isWishlisted = store.isInWishlist(product.id);
+      
+      return `
+        <div class="product-card" onclick="window.location.href='product.html?id=${product.id}'">
+          <div class="product-image">
+            <img src="${product.images[0]}" alt="${product.name}">
+            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+            <button class="product-wishlist ${isWishlisted ? 'active' : ''}" onclick="event.stopPropagation(); toggleWishlist(${product.id})">
+              <svg viewBox="0 0 24 24" fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-brand">${product.brand}</div>
+            <h3 class="product-name">${product.name}</h3>
+            <div class="product-category">${product.category} - ${product.size}</div>
+            <div class="product-price">
+              <span class="current">${formatPrice(product.price)}</span>
+              ${product.oldPrice ? `<span class="old">${formatPrice(product.oldPrice)}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    function toggleWishlist(productId) {
+      store.toggleWishlist(productId);
+      loadDashboardData();
+      showToast(store.isInWishlist(productId) ? 'تمت الإضافة للمفضلة' : 'تمت الإزالة من المفضلة');
+    }
+    
+    function showSection(section) {
+      // Hide all sections
+      document.querySelectorAll('.dashboard-main > section').forEach(s => s.classList.add('hidden'));
+      
+      // Show selected section
+      document.getElementById(`${section}-section`).classList.remove('hidden');
+      
+      // Update nav
+      document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+    
+    function updateProfile(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('profileName').value;
+      const email = document.getElementById('profileEmail').value;
+      const password = document.getElementById('profilePassword').value;
+      
+      // Update in users array
+      const userIndex = store.users.findIndex(u => u.id === store.currentUser.id);
+      if (userIndex !== -1) {
+        store.users[userIndex].name = name;
+        store.users[userIndex].email = email;
+        store.users[userIndex].avatar = name.split(' ').map(n => n[0]).join('').substring(0, 2);
+        if (password) {
+          store.users[userIndex].password = password;
+        }
+        
+        store.currentUser = { ...store.users[userIndex], password: undefined };
+        store.saveToStorage();
+        
+        document.getElementById('userName').textContent = name;
+        document.getElementById('userAvatar').textContent = store.currentUser.avatar;
+        document.getElementById('welcomeName').textContent = name.split(' ')[0];
+        
+        showToast('تم تحديث الملف الشخصي');
+      }
+    }
+    
+    // Cart functions
+    function toggleCart() {
+      const sidebar = document.getElementById('cartSidebar');
+      const overlay = document.getElementById('cartOverlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+      if (sidebar.classList.contains('active')) renderCartItems();
+    }
+    
+    function renderCartItems() {
+      const container = document.getElementById('cartItems');
+      const cart = store.cart;
+      
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <h3>السلة فارغة</h3>
+          </div>
+        `;
+      } else {
+        container.innerHTML = cart.map(item => {
+          const product = store.getProductById(item.productId);
+          if (!product) return '';
+          return `
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="${product.images[0]}" alt="${product.name}">
+              </div>
+              <div class="cart-item-info">
+                <h4>${product.name}</h4>
+                <p>${product.brand}</p>
+                <div class="price">${formatPrice(product.price * item.quantity)}</div>
+              </div>
+              <button class="cart-item-remove" onclick="removeFromCart(${item.productId})">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+      updateCartUI();
+    }
+    
+    function removeFromCart(productId) {
+      store.removeFromCart(productId);
+      renderCartItems();
+      loadDashboardData();
+    }
+    
+    function updateCartUI() {
+      document.getElementById('cartCount').textContent = store.cart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalEl = document.getElementById('cartTotal');
+      if (totalEl) totalEl.textContent = formatPrice(store.getCartTotal());
+    }
+    
+    function checkout() {
+      if (store.cart.length === 0) {
+        showToast('السلة فارغة');
+        return;
+      }
+      const address = prompt('أدخل عنوان التوصيل:');
+      if (address) {
+        const order = store.createOrder(address);
+        toggleCart();
+        loadDashboardData();
+        showToast(`تم إنشاء الطلب ${order.id} بنجاح!`);
+      }
+    }
+    
+    function logout() {
+      store.logout();
+      window.location.href = 'index.html';
+    }
+    
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').textContent = message;
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

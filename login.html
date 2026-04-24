@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | عطور الأصالة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">&#9830;</span>
+                    عطور الأصالة
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#products">المنتجات</a></li>
+                    <li><a href="index.html#about">من نحن</a></li>
+                    <li><a href="index.html#contact">تواصل معنا</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-outline active">تسجيل الدخول</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <!-- Auth Tabs -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+                    <button class="auth-tab" data-tab="register">حساب جديد</button>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form-container" id="login-form-container">
+                    <div class="auth-header">
+                        <h1>مرحباً بعودتك</h1>
+                        <p>سجل دخولك للوصول إلى حسابك</p>
+                    </div>
+
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="login-email">البريد الإلكتروني</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <input type="email" id="login-email" name="email" placeholder="example@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-password">كلمة المرور</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <input type="password" id="login-password" name="password" placeholder="********" required>
+                                <button type="button" class="toggle-password" aria-label="إظهار كلمة المرور">
+                                    <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                تذكرني
+                            </label>
+                            <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>تسجيل الدخول</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                <polyline points="10 17 15 12 10 7"></polyline>
+                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>أو</span>
+                    </div>
+
+                    <div class="demo-accounts">
+                        <p>حسابات تجريبية:</p>
+                        <div class="demo-buttons">
+                            <button class="demo-btn" data-email="admin@perfume.com" data-password="admin123" data-role="admin">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                </svg>
+                                دخول كأدمن
+                            </button>
+                            <button class="demo-btn" data-email="user@perfume.com" data-password="user123" data-role="user">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                دخول كمستخدم
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="auth-form-container hidden" id="register-form-container">
+                    <div class="auth-header">
+                        <h1>إنشاء حساب جديد</h1>
+                        <p>انضم إلينا واستمتع بأفضل العطور</p>
+                    </div>
+
+                    <form id="register-form" class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-fname">الاسم الأول</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <input type="text" id="register-fname" name="fname" placeholder="أحمد" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-lname">الاسم الأخير</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <input type="text" id="register-lname" name="lname" placeholder="محمد" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-email">البريد الإلكتروني</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <input type="email" id="register-email" name="email" placeholder="example@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-phone">رقم الهاتف</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <input type="tel" id="register-phone" name="phone" placeholder="+966 5XX XXX XXXX" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-password">كلمة المرور</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <input type="password" id="register-password" name="password" placeholder="********" required minlength="6">
+                                <button type="button" class="toggle-password" aria-label="إظهار كلمة المرور">
+                                    <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-confirm">تأكيد كلمة المرور</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <input type="password" id="register-confirm" name="confirm" placeholder="********" required>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span class="checkmark"></span>
+                                أوافق على <a href="#">الشروط والأحكام</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>إنشاء الحساب</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <line x1="20" y1="8" x2="20" y2="14"></line>
+                                <line x1="23" y1="11" x2="17" y2="11"></line>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div class="auth-decoration">
+                    <div class="perfume-bottle">
+                        <svg viewBox="0 0 100 200" fill="none">
+                            <rect x="35" y="10" width="30" height="20" rx="2" fill="#d4af37"/>
+                            <rect x="40" y="0" width="20" height="15" rx="3" fill="#b8960c"/>
+                            <path d="M20 30 L80 30 L85 180 C85 190 75 200 50 200 C25 200 15 190 15 180 L20 30Z" fill="url(#bottleGradient)"/>
+                            <ellipse cx="50" cy="115" rx="25" ry="60" fill="rgba(255,255,255,0.1)"/>
+                            <defs>
+                                <linearGradient id="bottleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#d4af37"/>
+                                    <stop offset="50%" stop-color="#f4e5c2"/>
+                                    <stop offset="100%" stop-color="#d4af37"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabs = document.querySelectorAll('.auth-tab');
+            const loginContainer = document.getElementById('login-form-container');
+            const registerContainer = document.getElementById('register-form-container');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    if (targetTab === 'login') {
+                        loginContainer.classList.remove('hidden');
+                        registerContainer.classList.add('hidden');
+                    } else {
+                        loginContainer.classList.add('hidden');
+                        registerContainer.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Toggle password visibility
+            document.querySelectorAll('.toggle-password').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.parentElement.querySelector('input');
+                    const type = input.type === 'password' ? 'text' : 'password';
+                    input.type = type;
+                    this.classList.toggle('active');
+                });
+            });
+
+            // Password strength indicator
+            const passwordInput = document.getElementById('register-password');
+            const strengthBar = document.querySelector('.strength-bar');
+
+            if (passwordInput && strengthBar) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+
+                    if (password.length >= 6) strength += 25;
+                    if (password.length >= 10) strength += 25;
+                    if (/[A-Z]/.test(password)) strength += 25;
+                    if (/[0-9]/.test(password)) strength += 15;
+                    if (/[^A-Za-z0-9]/.test(password)) strength += 10;
+
+                    strength = Math.min(100, strength);
+                    strengthBar.style.width = strength + '%';
+
+                    if (strength < 30) {
+                        strengthBar.style.background = '#e74c3c';
+                    } else if (strength < 60) {
+                        strengthBar.style.background = '#f39c12';
+                    } else if (strength < 80) {
+                        strengthBar.style.background = '#3498db';
+                    } else {
+                        strengthBar.style.background = '#27ae60';
+                    }
+                });
+            }
+
+            // Demo account buttons
+            document.querySelectorAll('.demo-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const email = this.dataset.email;
+                    const password = this.dataset.password;
+                    const role = this.dataset.role;
+
+                    // Create demo user session
+                    const user = {
+                        id: role === 'admin' ? 'admin-001' : 'user-001',
+                        email: email,
+                        name: role === 'admin' ? 'مدير النظام' : 'أحمد محمد',
+                        role: role,
+                        avatar: null,
+                        createdAt: new Date().toISOString()
+                    };
+
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    PerfumeApp.showToast('تم تسجيل الدخول بنجاح!', 'success');
+
+                    setTimeout(() => {
+                        if (role === 'admin') {
+                            window.location.href = 'admin.html';
+                        } else {
+                            window.location.href = 'dashboard.html';
+                        }
+                    }, 1000);
+                });
+            });
+
+            // Login form submission
+            document.getElementById('login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+
+                // Get users from localStorage
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                
+                // Check for demo accounts first
+                if (email === 'admin@perfume.com' && password === 'admin123') {
+                    const user = {
+                        id: 'admin-001',
+                        email: email,
+                        name: 'مدير النظام',
+                        role: 'admin',
+                        avatar: null,
+                        createdAt: new Date().toISOString()
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    PerfumeApp.showToast('مرحباً بك مدير النظام!', 'success');
+                    setTimeout(() => window.location.href = 'admin.html', 1000);
+                    return;
+                }
+
+                if (email === 'user@perfume.com' && password === 'user123') {
+                    const user = {
+                        id: 'user-001',
+                        email: email,
+                        name: 'أحمد محمد',
+                        role: 'user',
+                        avatar: null,
+                        createdAt: new Date().toISOString()
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    PerfumeApp.showToast('مرحباً بعودتك!', 'success');
+                    setTimeout(() => window.location.href = 'dashboard.html', 1000);
+                    return;
+                }
+
+                // Check registered users
+                const user = users.find(u => u.email === email && u.password === password);
+                
+                if (user) {
+                    const sessionUser = { ...user };
+                    delete sessionUser.password;
+                    localStorage.setItem('currentUser', JSON.stringify(sessionUser));
+                    PerfumeApp.showToast('مرحباً بعودتك!', 'success');
+                    setTimeout(() => window.location.href = 'dashboard.html', 1000);
+                } else {
+                    PerfumeApp.showToast('البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
+                }
+            });
+
+            // Register form submission
+            document.getElementById('register-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const fname = document.getElementById('register-fname').value;
+                const lname = document.getElementById('register-lname').value;
+                const email = document.getElementById('register-email').value;
+                const phone = document.getElementById('register-phone').value;
+                const password = document.getElementById('register-password').value;
+                const confirm = document.getElementById('register-confirm').value;
+
+                // Validation
+                if (password !== confirm) {
+                    PerfumeApp.showToast('كلمة المرور غير متطابقة', 'error');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    PerfumeApp.showToast('كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'error');
+                    return;
+                }
+
+                // Get existing users
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+                // Check if email exists
+                if (users.find(u => u.email === email)) {
+                    PerfumeApp.showToast('هذا البريد الإلكتروني مسجل مسبقاً', 'error');
+                    return;
+                }
+
+                // Create new user
+                const newUser = {
+                    id: 'user-' + Date.now(),
+                    name: fname + ' ' + lname,
+                    email: email,
+                    phone: phone,
+                    password: password,
+                    role: 'user',
+                    avatar: null,
+                    createdAt: new Date().toISOString()
+                };
+
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Auto login
+                const sessionUser = { ...newUser };
+                delete sessionUser.password;
+                localStorage.setItem('currentUser', JSON.stringify(sessionUser));
+
+                PerfumeApp.showToast('تم إنشاء الحساب بنجاح!', 'success');
+                setTimeout(() => window.location.href = 'dashboard.html', 1000);
+            });
+
+            // Mobile menu
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

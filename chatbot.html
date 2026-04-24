@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مساعد العطور الذكي | عطور الأصالة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">&#9830;</span>
+                    عطور الأصالة
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#products">المنتجات</a></li>
+                    <li><a href="index.html#about">من نحن</a></li>
+                    <li><a href="index.html#contact">تواصل معنا</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="chatbot.html" class="btn btn-primary active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        المساعد الذكي
+                    </a>
+                    <a href="login.html" class="btn btn-outline" id="auth-btn">تسجيل الدخول</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Chatbot Section -->
+    <section class="chatbot-section">
+        <div class="container">
+            <div class="chatbot-container">
+                <!-- Chatbot Header -->
+                <div class="chatbot-header">
+                    <div class="chatbot-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+                            <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="chatbot-info">
+                        <h1>مساعد العطور الذكي</h1>
+                        <p>دعني أساعدك في اختيار العطر المثالي لك</p>
+                    </div>
+                    <button class="chatbot-reset" id="reset-chat" title="بدء محادثة جديدة">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6"></path>
+                            <path d="M1 20v-6h6"></path>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be inserted here -->
+                </div>
+
+                <!-- Quick Replies -->
+                <div class="quick-replies" id="quick-replies">
+                    <!-- Quick reply buttons will be inserted here -->
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="اكتب رسالتك هنا..." autocomplete="off">
+                    <button id="send-btn" class="send-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recommendation Result -->
+            <div class="recommendation-result hidden" id="recommendation-result">
+                <h2>العطر المناسب لك</h2>
+                <div class="recommendation-card" id="recommendation-card">
+                    <!-- Product card will be inserted here -->
+                </div>
+                <div class="recommendation-actions">
+                    <a href="#" class="btn btn-primary" id="view-product-btn">عرض التفاصيل</a>
+                    <button class="btn btn-outline" id="try-again-btn">جرب مرة أخرى</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check auth state
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const authBtn = document.getElementById('auth-btn');
+            
+            if (currentUser && authBtn) {
+                if (currentUser.role === 'admin') {
+                    authBtn.textContent = 'لوحة التحكم';
+                    authBtn.href = 'admin.html';
+                } else {
+                    authBtn.textContent = 'حسابي';
+                    authBtn.href = 'dashboard.html';
+                }
+            }
+
+            // Mobile menu
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Chatbot Logic
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+            const quickReplies = document.getElementById('quick-replies');
+            const recommendationResult = document.getElementById('recommendation-result');
+            const recommendationCard = document.getElementById('recommendation-card');
+            const resetBtn = document.getElementById('reset-chat');
+            const viewProductBtn = document.getElementById('view-product-btn');
+            const tryAgainBtn = document.getElementById('try-again-btn');
+
+            // Chat state
+            let chatState = {
+                step: 0,
+                preferences: {
+                    gender: null,
+                    occasion: null,
+                    season: null,
+                    intensity: null,
+                    notes: null
+                }
+            };
+
+            // Questions flow
+            const questions = [
+                {
+                    text: 'مرحباً! أنا مساعدك الذكي لاختيار العطر المثالي. هل العطر لرجل أم امرأة؟',
+                    key: 'gender',
+                    options: [
+                        { text: 'رجالي', value: 'رجالي' },
+                        { text: 'نسائي', value: 'نسائي' },
+                        { text: 'يونيسكس', value: 'يونيسكس' }
+                    ]
+                },
+                {
+                    text: 'ممتاز! ما هي المناسبة الرئيسية لاستخدام العطر؟',
+                    key: 'occasion',
+                    options: [
+                        { text: 'للعمل والمكتب', value: 'عمل' },
+                        { text: 'للمناسبات الخاصة', value: 'مناسبات' },
+                        { text: 'للاستخدام اليومي', value: 'يومي' },
+                        { text: 'للسهرات والحفلات', value: 'سهرات' }
+                    ]
+                },
+                {
+                    text: 'رائع! في أي فصل ستستخدم العطر أكثر؟',
+                    key: 'season',
+                    options: [
+                        { text: 'الصيف (منعش وخفيف)', value: 'صيف' },
+                        { text: 'الشتاء (دافئ وقوي)', value: 'شتاء' },
+                        { text: 'الربيع والخريف', value: 'ربيع' },
+                        { text: 'جميع الفصول', value: 'جميع' }
+                    ]
+                },
+                {
+                    text: 'كم تريد قوة الثبات والانتشار؟',
+                    key: 'intensity',
+                    options: [
+                        { text: 'خفيف وقريب من الجسم', value: 'خفيف' },
+                        { text: 'متوسط ومتوازن', value: 'متوسط' },
+                        { text: 'قوي وملفت', value: 'قوي' }
+                    ]
+                },
+                {
+                    text: 'أخيراً، ما هي الروائح المفضلة لديك؟',
+                    key: 'notes',
+                    options: [
+                        { text: 'عود وبخور', value: 'عود' },
+                        { text: 'زهور وورد', value: 'زهور' },
+                        { text: 'فواكه منعشة', value: 'فواكه' },
+                        { text: 'خشبية ومسك', value: 'خشبي' },
+                        { text: 'حمضيات وبرغموت', value: 'حمضي' }
+                    ]
+                }
+            ];
+
+            // Initialize chat
+            function initChat() {
+                chatMessages.innerHTML = '';
+                quickReplies.innerHTML = '';
+                chatState = {
+                    step: 0,
+                    preferences: {
+                        gender: null,
+                        occasion: null,
+                        season: null,
+                        intensity: null,
+                        notes: null
+                    }
+                };
+                recommendationResult.classList.add('hidden');
+                askQuestion();
+            }
+
+            // Add message to chat
+            function addMessage(text, isUser = false, isCard = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+                
+                if (isCard) {
+                    messageDiv.innerHTML = text;
+                } else {
+                    messageDiv.innerHTML = `
+                        <div class="message-content">
+                            ${!isUser ? '<div class="bot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/></svg></div>' : ''}
+                            <div class="message-text">${text}</div>
+                        </div>
+                    `;
+                }
+                
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Show quick replies
+            function showQuickReplies(options) {
+                quickReplies.innerHTML = '';
+                options.forEach(option => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quick-reply-btn';
+                    btn.textContent = option.text;
+                    btn.addEventListener('click', () => handleAnswer(option.value, option.text));
+                    quickReplies.appendChild(btn);
+                });
+            }
+
+            // Ask question
+            function askQuestion() {
+                if (chatState.step < questions.length) {
+                    const question = questions[chatState.step];
+                    
+                    // Add typing indicator
+                    const typingDiv = document.createElement('div');
+                    typingDiv.className = 'chat-message bot-message typing-indicator';
+                    typingDiv.innerHTML = `
+                        <div class="message-content">
+                            <div class="bot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/></svg></div>
+                            <div class="typing-dots"><span></span><span></span><span></span></div>
+                        </div>
+                    `;
+                    chatMessages.appendChild(typingDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    setTimeout(() => {
+                        typingDiv.remove();
+                        addMessage(question.text);
+                        showQuickReplies(question.options);
+                    }, 800);
+                } else {
+                    showRecommendation();
+                }
+            }
+
+            // Handle answer
+            function handleAnswer(value, displayText) {
+                const question = questions[chatState.step];
+                chatState.preferences[question.key] = value;
+                
+                addMessage(displayText, true);
+                quickReplies.innerHTML = '';
+                
+                chatState.step++;
+                
+                setTimeout(() => {
+                    askQuestion();
+                }, 500);
+            }
+
+            // Get recommendation based on preferences
+            function getRecommendation() {
+                const products = PerfumeApp.getProducts();
+                const prefs = chatState.preferences;
+
+                // Score each product based on preferences
+                let scoredProducts = products.map(product => {
+                    let score = 0;
+
+                    // Gender match
+                    if (prefs.gender === 'يونيسكس') {
+                        score += 10;
+                    } else if (product.category === prefs.gender) {
+                        score += 20;
+                    }
+
+                    // Occasion match (using intensity and description)
+                    if (prefs.occasion === 'عمل' && product.intensity === 'خفيف') {
+                        score += 15;
+                    } else if (prefs.occasion === 'مناسبات' && product.intensity === 'قوي') {
+                        score += 15;
+                    } else if (prefs.occasion === 'يومي' && product.intensity === 'متوسط') {
+                        score += 15;
+                    } else if (prefs.occasion === 'سهرات' && product.intensity === 'قوي') {
+                        score += 15;
+                    }
+
+                    // Season match
+                    if (prefs.season === 'جميع' || product.season === prefs.season || product.season === 'جميع الفصول') {
+                        score += 15;
+                    }
+
+                    // Intensity match
+                    if (product.intensity === prefs.intensity) {
+                        score += 20;
+                    }
+
+                    // Notes match
+                    const notesLower = (product.notes || []).join(' ').toLowerCase();
+                    const descLower = (product.description || '').toLowerCase();
+                    
+                    if (prefs.notes === 'عود' && (notesLower.includes('عود') || notesLower.includes('بخور') || descLower.includes('عود'))) {
+                        score += 25;
+                    } else if (prefs.notes === 'زهور' && (notesLower.includes('ورد') || notesLower.includes('زهور') || notesLower.includes('ياسمين'))) {
+                        score += 25;
+                    } else if (prefs.notes === 'فواكه' && (notesLower.includes('فواكه') || notesLower.includes('توت') || notesLower.includes('تفاح'))) {
+                        score += 25;
+                    } else if (prefs.notes === 'خشبي' && (notesLower.includes('خشب') || notesLower.includes('صندل') || notesLower.includes('مسك'))) {
+                        score += 25;
+                    } else if (prefs.notes === 'حمضي' && (notesLower.includes('حمضي') || notesLower.includes('برغموت') || notesLower.includes('ليمون'))) {
+                        score += 25;
+                    }
+
+                    return { ...product, score };
+                });
+
+                // Sort by score
+                scoredProducts.sort((a, b) => b.score - a.score);
+
+                // Return top product
+                return scoredProducts[0];
+            }
+
+            // Show recommendation
+            function showRecommendation() {
+                addMessage('شكراً لإجاباتك! دعني أبحث عن العطر المثالي لك...');
+
+                // Add thinking indicator
+                const thinkingDiv = document.createElement('div');
+                thinkingDiv.className = 'chat-message bot-message';
+                thinkingDiv.innerHTML = `
+                    <div class="message-content">
+                        <div class="bot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/></svg></div>
+                        <div class="thinking-animation">
+                            <span>جاري البحث</span>
+                            <div class="thinking-dots"><span>.</span><span>.</span><span>.</span></div>
+                        </div>
+                    </div>
+                `;
+                chatMessages.appendChild(thinkingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                setTimeout(() => {
+                    thinkingDiv.remove();
+
+                    const product = getRecommendation();
+
+                    if (product) {
+                        addMessage('وجدت لك العطر المثالي! بناءً على تفضيلاتك، أنصحك بـ:');
+
+                        // Create product card in chat
+                        const cardHTML = `
+                            <div class="chat-message bot-message">
+                                <div class="message-content">
+                                    <div class="bot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/></svg></div>
+                                    <div class="chat-product-card">
+                                        <div class="chat-product-image">
+                                            <img src="${product.image}" alt="${product.name}">
+                                        </div>
+                                        <div class="chat-product-info">
+                                            <span class="chat-product-brand">${product.brand}</span>
+                                            <h3 class="chat-product-name">${product.name}</h3>
+                                            <p class="chat-product-desc">${product.description.substring(0, 100)}...</p>
+                                            <div class="chat-product-meta">
+                                                <span class="chat-product-price">${product.price} ر.س</span>
+                                                <span class="chat-product-category">${product.category}</span>
+                                            </div>
+                                            <div class="chat-product-notes">
+                                                ${(product.notes || []).slice(0, 3).map(note => `<span class="note-tag">${note}</span>`).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        setTimeout(() => {
+                            chatMessages.insertAdjacentHTML('beforeend', cardHTML);
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                            // Show action buttons
+                            const actionsHTML = `
+                                <div class="chat-actions">
+                                    <a href="product.html?id=${product.id}" class="btn btn-primary btn-sm">عرض التفاصيل</a>
+                                    <button class="btn btn-outline btn-sm" onclick="initChat()">جرب مرة أخرى</button>
+                                </div>
+                            `;
+                            quickReplies.innerHTML = actionsHTML;
+                        }, 500);
+                    } else {
+                        addMessage('عذراً، لم أجد عطراً مطابقاً تماماً لتفضيلاتك. يمكنك تصفح جميع العطور أو المحاولة مرة أخرى.');
+                        
+                        const actionsHTML = `
+                            <a href="index.html#products" class="btn btn-primary btn-sm">تصفح العطور</a>
+                            <button class="btn btn-outline btn-sm" onclick="initChat()">جرب مرة أخرى</button>
+                        `;
+                        quickReplies.innerHTML = actionsHTML;
+                    }
+                }, 2000);
+            }
+
+            // Send message via input
+            function sendMessage() {
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                addMessage(text, true);
+                chatInput.value = '';
+
+                // Simple response
+                setTimeout(() => {
+                    if (chatState.step < questions.length) {
+                        addMessage('الرجاء اختيار إجابة من الخيارات المتاحة للحصول على أفضل توصية.');
+                    } else {
+                        addMessage('شكراً لرسالتك! يمكنك بدء محادثة جديدة للحصول على توصية أخرى.');
+                    }
+                }, 500);
+            }
+
+            // Event listeners
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            resetBtn.addEventListener('click', initChat);
+            
+            if (tryAgainBtn) {
+                tryAgainBtn.addEventListener('click', initChat);
+            }
+
+            // Make initChat global for inline onclick
+            window.initChat = initChat;
+
+            // Start chat
+            initChat();
+        });
+    </script>
+</body>
+</html>

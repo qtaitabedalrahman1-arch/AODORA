@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم الأدمن | عطور الأصالة</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-1.5 0-2.7 1.2-2.7 2.7 0 .8.3 1.5.9 2L8 12l-2-1.5c-.3-.2-.7-.3-1-.3-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5c.4 0 .7-.1 1-.3L8 12l2 3.5c-.5.5-.8 1.2-.8 2 0 1.5 1.2 2.7 2.7 2.7s2.7-1.2 2.7-2.7c0-.8-.3-1.5-.8-2L16 12l2 1.5c.3.2.6.3 1 .3.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.4 0-.7.1-1 .3L16 12l-2.2-4.3c.6-.5.9-1.2.9-2C14.7 4.2 13.5 3 12 3z"/></svg>
+        <span>عطور الأصالة</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#products">العطور</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary" onclick="logout()">تسجيل خروج</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Dashboard -->
+  <main class="dashboard">
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-avatar" id="adminAvatar">أم</div>
+          <div class="sidebar-user">
+            <h3 id="adminName">أحمد محمد</h3>
+            <p>مدير النظام</p>
+          </div>
+        </div>
+        
+        <ul class="sidebar-nav">
+          <li>
+            <a href="#" class="active" onclick="showSection('overview')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+              نظرة عامة
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('orders')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              الطلبات
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('products')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              المنتجات
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showSection('messages')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              الرسائل
+              <span id="unreadBadge" style="background: var(--gold); color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-right: auto;">0</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="dashboard-main">
+        <!-- Overview Section -->
+        <section id="overview-section">
+          <div class="dashboard-header">
+            <h1>نظرة عامة</h1>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="icon gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </div>
+              <h3 id="totalProducts">0</h3>
+              <p>إجمالي المنتجات</p>
+            </div>
+            <div class="stat-card">
+              <div class="icon green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <h3 id="totalOrders">0</h3>
+              <p>إجمالي الطلبات</p>
+            </div>
+            <div class="stat-card">
+              <div class="icon blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 id="totalRevenue">0 ر.س</h3>
+              <p>إجمالي الإيرادات</p>
+            </div>
+            <div class="stat-card">
+              <div class="icon purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <h3 id="totalMessages">0</h3>
+              <p>الرسائل الجديدة</p>
+            </div>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-header">
+              <h2>آخر الطلبات</h2>
+              <button class="btn btn-secondary" onclick="showSection('orders')">عرض الكل</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>العميل</th>
+                  <th>المبلغ</th>
+                  <th>الحالة</th>
+                  <th>التاريخ</th>
+                </tr>
+              </thead>
+              <tbody id="recentOrdersTable">
+                <!-- Will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders-section" class="hidden">
+          <div class="dashboard-header">
+            <h1>إدارة الطلبات</h1>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-header">
+              <h2>جميع الطلبات</h2>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>العميل</th>
+                  <th>المنتجات</th>
+                  <th>المبلغ</th>
+                  <th>الحالة</th>
+                  <th>التاريخ</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="allOrdersTable">
+                <!-- Will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products-section" class="hidden">
+          <div class="dashboard-header">
+            <h1>إدارة المنتجات</h1>
+            <button class="btn btn-primary" onclick="openProductModal()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              إضافة منتج
+            </button>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-header">
+              <h2>جميع المنتجات</h2>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>المنتج</th>
+                  <th>العلامة</th>
+                  <th>التصنيف</th>
+                  <th>السعر</th>
+                  <th>المخزون</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="productsTable">
+                <!-- Will be populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages-section" class="hidden">
+          <div class="dashboard-header">
+            <h1>الرسائل</h1>
+          </div>
+
+          <div id="messagesContainer">
+            <!-- Will be populated by JS -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Product Modal -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="productModalTitle">إضافة منتج جديد</h2>
+        <button class="modal-close" onclick="closeProductModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="productForm" onsubmit="saveProduct(event)">
+          <input type="hidden" id="productId">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>اسم المنتج</label>
+              <input type="text" id="productName" required placeholder="مثال: عود ملكي">
+            </div>
+            <div class="form-group">
+              <label>العلامة التجارية</label>
+              <input type="text" id="productBrand" required placeholder="مثال: Arabian Oud">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>التصنيف</label>
+              <select id="productCategory" required>
+                <option value="رجالي">رجالي</option>
+                <option value="نسائي">نسائي</option>
+                <option value="للجنسين">للجنسين</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>الحجم</label>
+              <input type="text" id="productSize" required placeholder="مثال: 100ml">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>السعر (ر.س)</label>
+              <input type="number" id="productPrice" required min="0" placeholder="0">
+            </div>
+            <div class="form-group">
+              <label>السعر القديم (اختياري)</label>
+              <input type="number" id="productOldPrice" min="0" placeholder="0">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>المخزون</label>
+              <input type="number" id="productStock" required min="0" placeholder="0">
+            </div>
+            <div class="form-group">
+              <label>التركيز</label>
+              <input type="text" id="productConcentration" placeholder="Eau de Parfum">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>الوصف</label>
+            <textarea id="productDescription" required placeholder="وصف تفصيلي للعطر..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label>رابط الصورة الرئيسية</label>
+            <input type="url" id="productImage" required placeholder="https://...">
+          </div>
+          
+          <div class="form-group">
+            <label>الشارة (اختياري)</label>
+            <input type="text" id="productBadge" placeholder="مثال: جديد، الأكثر مبيعاً">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeProductModal()">إلغاء</button>
+        <button class="btn btn-primary" onclick="document.getElementById('productForm').requestSubmit()">حفظ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Status Modal -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal" style="max-width: 400px;">
+      <div class="modal-header">
+        <h2>تحديث حالة الطلب</h2>
+        <button class="modal-close" onclick="closeOrderModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="orderIdInput">
+        <div class="form-group">
+          <label>حالة الطلب</label>
+          <select id="orderStatusSelect">
+            <option value="pending">قيد الانتظار</option>
+            <option value="processing">قيد التجهيز</option>
+            <option value="shipped">تم الشحن</option>
+            <option value="delivered">تم التوصيل</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeOrderModal()">إلغاء</button>
+        <button class="btn btn-primary" onclick="updateOrderStatus()">تحديث</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message Detail Modal -->
+  <div class="modal-overlay" id="messageModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="messageSubject">موضوع الرسالة</h2>
+        <button class="modal-close" onclick="closeMessageModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom: 16px;">
+          <strong>من:</strong> <span id="messageSender"></span>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <strong>البريد:</strong> <span id="messageEmail"></span>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <strong>التاريخ:</strong> <span id="messageDate"></span>
+        </div>
+        <div>
+          <strong>الرسالة:</strong>
+          <p id="messageContent" style="margin-top: 8px; color: var(--gray); line-height: 1.8;"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeMessageModal()">إغلاق</button>
+        <button class="btn btn-primary" onclick="replyToMessage()">رد عبر البريد</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" style="position: fixed; bottom: 24px; right: 24px; background: var(--black); color: var(--white); padding: 16px 24px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 3000;">
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    let currentEditingProduct = null;
+    let currentMessageEmail = '';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if admin is logged in
+      if (!store.currentUser || store.currentUser.role !== 'admin') {
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      document.getElementById('adminName').textContent = store.currentUser.name;
+      document.getElementById('adminAvatar').textContent = store.currentUser.avatar;
+      
+      loadDashboardData();
+    });
+    
+    function loadDashboardData() {
+      const products = store.getProducts();
+      const orders = store.getOrders();
+      const messages = store.getMessages();
+      
+      // Stats
+      document.getElementById('totalProducts').textContent = products.length;
+      document.getElementById('totalOrders').textContent = orders.length;
+      document.getElementById('totalRevenue').textContent = formatPrice(orders.reduce((sum, o) => sum + o.total, 0));
+      
+      const unreadCount = messages.filter(m => !m.read).length;
+      document.getElementById('totalMessages').textContent = unreadCount;
+      document.getElementById('unreadBadge').textContent = unreadCount;
+      
+      // Recent orders
+      const recentOrders = orders.slice(-5).reverse();
+      document.getElementById('recentOrdersTable').innerHTML = recentOrders.map(order => `
+        <tr>
+          <td>${order.id}</td>
+          <td>${order.userName}</td>
+          <td>${formatPrice(order.total)}</td>
+          <td><span class="status-badge ${order.status}">${getStatusLabel(order.status)}</span></td>
+          <td>${order.date}</td>
+        </tr>
+      `).join('');
+      
+      loadAllOrders();
+      loadAllProducts();
+      loadMessages();
+    }
+    
+    function showSection(section) {
+      // Hide all sections
+      document.querySelectorAll('.dashboard-main > section').forEach(s => s.classList.add('hidden'));
+      
+      // Show selected section
+      document.getElementById(`${section}-section`).classList.remove('hidden');
+      
+      // Update nav
+      document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+    
+    // ========================================
+    // ORDERS
+    // ========================================
+    
+    function loadAllOrders() {
+      const orders = store.getOrders();
+      document.getElementById('allOrdersTable').innerHTML = orders.map(order => `
+        <tr>
+          <td>${order.id}</td>
+          <td>${order.userName}</td>
+          <td>${order.items.map(i => `${i.name} (${i.quantity})`).join('، ')}</td>
+          <td>${formatPrice(order.total)}</td>
+          <td><span class="status-badge ${order.status}">${getStatusLabel(order.status)}</span></td>
+          <td>${order.date}</td>
+          <td>
+            <div class="action-btns">
+              <button class="action-btn edit" onclick="openOrderModal('${order.id}', '${order.status}')" title="تحديث الحالة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    function openOrderModal(orderId, currentStatus) {
+      document.getElementById('orderIdInput').value = orderId;
+      document.getElementById('orderStatusSelect').value = currentStatus;
+      document.getElementById('orderModal').classList.add('active');
+    }
+    
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.remove('active');
+    }
+    
+    function updateOrderStatus() {
+      const orderId = document.getElementById('orderIdInput').value;
+      const newStatus = document.getElementById('orderStatusSelect').value;
+      
+      store.updateOrderStatus(orderId, newStatus);
+      closeOrderModal();
+      loadDashboardData();
+      showToast('تم تحديث حالة الطلب');
+    }
+    
+    // ========================================
+    // PRODUCTS
+    // ========================================
+    
+    function loadAllProducts() {
+      const products = store.getProducts();
+      document.getElementById('productsTable').innerHTML = products.map(product => `
+        <tr>
+          <td>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="${product.images[0]}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: contain; background: var(--off-white); border-radius: 8px;">
+              <span>${product.name}</span>
+            </div>
+          </td>
+          <td>${product.brand}</td>
+          <td>${product.category}</td>
+          <td>${formatPrice(product.price)}</td>
+          <td>${product.stock}</td>
+          <td>
+            <div class="action-btns">
+              <button class="action-btn view" onclick="window.open('product.html?id=${product.id}', '_blank')" title="عرض">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+              <button class="action-btn edit" onclick="editProduct(${product.id})" title="تعديل">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+              <button class="action-btn delete" onclick="deleteProduct(${product.id})" title="حذف">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    function openProductModal(product = null) {
+      currentEditingProduct = product;
+      
+      if (product) {
+        document.getElementById('productModalTitle').textContent = 'تعديل المنتج';
+        document.getElementById('productId').value = product.id;
+        document.getElementById('productName').value = product.name;
+        document.getElementById('productBrand').value = product.brand;
+        document.getElementById('productCategory').value = product.category;
+        document.getElementById('productSize').value = product.size;
+        document.getElementById('productPrice').value = product.price;
+        document.getElementById('productOldPrice').value = product.oldPrice || '';
+        document.getElementById('productStock').value = product.stock;
+        document.getElementById('productConcentration').value = product.concentration || '';
+        document.getElementById('productDescription').value = product.description;
+        document.getElementById('productImage').value = product.images[0];
+        document.getElementById('productBadge').value = product.badge || '';
+      } else {
+        document.getElementById('productModalTitle').textContent = 'إضافة منتج جديد';
+        document.getElementById('productForm').reset();
+        document.getElementById('productId').value = '';
+      }
+      
+      document.getElementById('productModal').classList.add('active');
+    }
+    
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('active');
+      currentEditingProduct = null;
+    }
+    
+    function editProduct(id) {
+      const product = store.getProductById(id);
+      if (product) {
+        openProductModal(product);
+      }
+    }
+    
+    function saveProduct(event) {
+      event.preventDefault();
+      
+      const productData = {
+        name: document.getElementById('productName').value,
+        brand: document.getElementById('productBrand').value,
+        category: document.getElementById('productCategory').value,
+        size: document.getElementById('productSize').value,
+        price: parseFloat(document.getElementById('productPrice').value),
+        oldPrice: document.getElementById('productOldPrice').value ? parseFloat(document.getElementById('productOldPrice').value) : null,
+        stock: parseInt(document.getElementById('productStock').value),
+        concentration: document.getElementById('productConcentration').value || 'Eau de Parfum',
+        description: document.getElementById('productDescription').value,
+        images: [document.getElementById('productImage').value],
+        badge: document.getElementById('productBadge').value || null,
+        rating: 4.5,
+        reviews: 0,
+        notes: {
+          top: 'غير محدد',
+          middle: 'غير محدد',
+          base: 'غير محدد'
+        }
+      };
+      
+      const productId = document.getElementById('productId').value;
+      
+      if (productId) {
+        store.updateProduct(productId, productData);
+        showToast('تم تحديث المنتج بنجاح');
+      } else {
+        store.addProduct(productData);
+        showToast('تم إضافة المنتج بنجاح');
+      }
+      
+      closeProductModal();
+      loadDashboardData();
+    }
+    
+    function deleteProduct(id) {
+      if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+        store.deleteProduct(id);
+        loadDashboardData();
+        showToast('تم حذف المنتج');
+      }
+    }
+    
+    // ========================================
+    // MESSAGES
+    // ========================================
+    
+    function loadMessages() {
+      const messages = store.getMessages();
+      const container = document.getElementById('messagesContainer');
+      
+      if (messages.length === 0) {
+        container.innerHTML = '<div class="data-card" style="padding: 40px; text-align: center; color: var(--gray);">لا توجد رسائل</div>';
+        return;
+      }
+      
+      container.innerHTML = messages.map(msg => `
+        <div class="message-card ${msg.read ? '' : 'unread'}" onclick="viewMessage(${msg.id})">
+          <div class="message-header">
+            <div class="message-sender">
+              <div class="avatar">${msg.name.split(' ').map(n => n[0]).join('').substring(0, 2)}</div>
+              <div>
+                <div class="name">${msg.name}</div>
+                <div class="email">${msg.email}</div>
+              </div>
+            </div>
+            <div class="message-date">${msg.date}</div>
+          </div>
+          <div style="font-weight: 600; margin-bottom: 8px;">${msg.subject}</div>
+          <div class="message-content">${msg.message.substring(0, 100)}${msg.message.length > 100 ? '...' : ''}</div>
+        </div>
+      `).join('');
+    }
+    
+    function viewMessage(id) {
+      const messages = store.getMessages();
+      const msg = messages.find(m => m.id === id);
+      
+      if (msg) {
+        store.markMessageAsRead(id);
+        loadDashboardData();
+        
+        document.getElementById('messageSubject').textContent = msg.subject;
+        document.getElementById('messageSender').textContent = msg.name;
+        document.getElementById('messageEmail').textContent = msg.email;
+        document.getElementById('messageDate').textContent = msg.date;
+        document.getElementById('messageContent').textContent = msg.message;
+        currentMessageEmail = msg.email;
+        
+        document.getElementById('messageModal').classList.add('active');
+      }
+    }
+    
+    function closeMessageModal() {
+      document.getElementById('messageModal').classList.remove('active');
+    }
+    
+    function replyToMessage() {
+      window.open(`mailto:${currentMessageEmail}`);
+    }
+    
+    // ========================================
+    // UTILITIES
+    // ========================================
+    
+    function logout() {
+      store.logout();
+      window.location.href = 'index.html';
+    }
+    
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').textContent = message;
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

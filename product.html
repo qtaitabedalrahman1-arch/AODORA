@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل العطر | عطور الأصالة</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-1.5 0-2.7 1.2-2.7 2.7 0 .8.3 1.5.9 2L8 12l-2-1.5c-.3-.2-.7-.3-1-.3-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5c.4 0 .7-.1 1-.3L8 12l2 3.5c-.5.5-.8 1.2-.8 2 0 1.5 1.2 2.7 2.7 2.7s2.7-1.2 2.7-2.7c0-.8-.3-1.5-.8-2L16 12l2 1.5c.3.2.6.3 1 .3.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.4 0-.7.1-1 .3L16 12l-2.2-4.3c.6-.5.9-1.2.9-2C14.7 4.2 13.5 3 12 3z"/></svg>
+        <span>عطور الأصالة</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#products">العطور</a></li>
+        <li><a href="index.html#categories">التصنيفات</a></li>
+        <li><a href="index.html#contact">تواصل معنا</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-icon cart-btn" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <div class="user-menu">
+          <button class="btn btn-icon" id="userBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+          <div class="user-dropdown" id="userDropdown"></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Product Details -->
+  <main class="product-details">
+    <div class="product-details-grid" id="productContent">
+      <!-- Content loaded by JS -->
+    </div>
+
+    <!-- Related Products -->
+    <section class="section" style="padding: 60px 0;">
+      <div class="section-header">
+        <h2>عطور مشابهة</h2>
+        <p>قد تعجبك هذه العطور أيضاً</p>
+      </div>
+      <div class="products-grid" id="relatedProducts" style="max-width: 100%;"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color: var(--white);">
+          <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 3c-1.5 0-2.7 1.2-2.7 2.7 0 .8.3 1.5.9 2L8 12l-2-1.5c-.3-.2-.7-.3-1-.3-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5c.4 0 .7-.1 1-.3L8 12l2 3.5c-.5.5-.8 1.2-.8 2 0 1.5 1.2 2.7 2.7 2.7s2.7-1.2 2.7-2.7c0-.8-.3-1.5-.8-2L16 12l2 1.5c.3.2.6.3 1 .3.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5c-.4 0-.7.1-1 .3L16 12l-2.2-4.3c.6-.5.9-1.2.9-2C14.7 4.2 13.5 3 12 3z"/></svg>
+          <span>عطور الأصالة</span>
+        </a>
+        <p>متجرك الأول للعطور الفاخرة في المملكة.</p>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="index.html#products">العطور</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>خدمة العملاء</h4>
+        <ul>
+          <li><a href="#">سياسة الشحن</a></li>
+          <li><a href="#">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li><a href="tel:+966500000000">+966 50 000 0000</a></li>
+          <li><a href="mailto:info@perfume.com">info@perfume.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة &copy; 2024 عطور الأصالة</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>سلة التسوق</h2>
+      <button class="modal-close" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span id="cartTotal">0 ر.س</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">إتمام الطلب</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" style="position: fixed; bottom: 24px; right: 24px; background: var(--black); color: var(--white); padding: 16px 24px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 3000;">
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script>
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    
+    let currentProduct = null;
+    let currentImageIndex = 0;
+    let quantity = 1;
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      if (productId) {
+        loadProduct(productId);
+      } else {
+        window.location.href = 'index.html';
+      }
+      updateCartUI();
+      updateUserUI();
+    });
+    
+    function loadProduct(id) {
+      currentProduct = store.getProductById(id);
+      
+      if (!currentProduct) {
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      document.title = `${currentProduct.name} | عطور الأصالة`;
+      
+      const content = document.getElementById('productContent');
+      const isWishlisted = store.isInWishlist(currentProduct.id);
+      
+      content.innerHTML = `
+        <div class="product-gallery">
+          <div class="main-image">
+            <img src="${currentProduct.images[0]}" alt="${currentProduct.name}" id="mainImage">
+          </div>
+          <div class="thumbnail-grid">
+            ${currentProduct.images.map((img, index) => `
+              <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeImage(${index})">
+                <img src="${img}" alt="${currentProduct.name}">
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
+        <div class="product-info-details">
+          <div class="brand">${currentProduct.brand}</div>
+          <h1>${currentProduct.name}</h1>
+          
+          <div class="product-rating">
+            <div class="stars">
+              ${generateStars(currentProduct.rating)}
+            </div>
+            <span class="rating-count">(${currentProduct.reviews} تقييم)</span>
+          </div>
+          
+          <div class="price">
+            ${formatPrice(currentProduct.price)}
+            ${currentProduct.oldPrice ? `<span style="font-size: 18px; color: var(--gray); text-decoration: line-through; margin-right: 12px;">${formatPrice(currentProduct.oldPrice)}</span>` : ''}
+          </div>
+          
+          <p class="product-description">${currentProduct.description}</p>
+          
+          <div class="product-meta">
+            <div class="meta-item">
+              <label>الحجم</label>
+              <span>${currentProduct.size}</span>
+            </div>
+            <div class="meta-item">
+              <label>التركيز</label>
+              <span>${currentProduct.concentration}</span>
+            </div>
+            <div class="meta-item">
+              <label>التصنيف</label>
+              <span>${currentProduct.category}</span>
+            </div>
+            <div class="meta-item">
+              <label>المخزون</label>
+              <span>${currentProduct.stock > 0 ? `متوفر (${currentProduct.stock})` : 'غير متوفر'}</span>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 24px;">
+            <h4 style="margin-bottom: 12px;">النوتات العطرية:</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; gap: 8px;">
+                <span style="background: var(--gold-light); padding: 4px 12px; border-radius: 20px; font-size: 13px;">المقدمة: ${currentProduct.notes.top}</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <span style="background: var(--off-white); padding: 4px 12px; border-radius: 20px; font-size: 13px;">القلب: ${currentProduct.notes.middle}</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <span style="background: var(--gray-light); padding: 4px 12px; border-radius: 20px; font-size: 13px;">القاعدة: ${currentProduct.notes.base}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="quantity-selector">
+            <label>الكمية:</label>
+            <div class="quantity-controls">
+              <button onclick="updateQty(-1)">-</button>
+              <input type="number" value="1" min="1" id="qtyInput" onchange="setQty(this.value)">
+              <button onclick="updateQty(1)">+</button>
+            </div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary" onclick="addToCartFromDetails()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              أضف للسلة
+            </button>
+            <button class="btn btn-secondary ${isWishlisted ? 'active' : ''}" onclick="toggleWishlistProduct()" id="wishlistBtn" style="${isWishlisted ? 'background: var(--gold); color: white;' : ''}">
+              <svg viewBox="0 0 24 24" fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              ${isWishlisted ? 'في المفضلة' : 'أضف للمفضلة'}
+            </button>
+          </div>
+        </div>
+      `;
+      
+      loadRelatedProducts();
+    }
+    
+    function changeImage(index) {
+      currentImageIndex = index;
+      document.getElementById('mainImage').src = currentProduct.images[index];
+      
+      document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+    }
+    
+    function updateQty(delta) {
+      const input = document.getElementById('qtyInput');
+      let newVal = parseInt(input.value) + delta;
+      if (newVal < 1) newVal = 1;
+      if (newVal > currentProduct.stock) newVal = currentProduct.stock;
+      input.value = newVal;
+      quantity = newVal;
+    }
+    
+    function setQty(val) {
+      let newVal = parseInt(val);
+      if (isNaN(newVal) || newVal < 1) newVal = 1;
+      if (newVal > currentProduct.stock) newVal = currentProduct.stock;
+      document.getElementById('qtyInput').value = newVal;
+      quantity = newVal;
+    }
+    
+    function addToCartFromDetails() {
+      store.addToCart(currentProduct.id, quantity);
+      updateCartUI();
+      showToast('تمت الإضافة للسلة');
+    }
+    
+    function toggleWishlistProduct() {
+      store.toggleWishlist(currentProduct.id);
+      const isWishlisted = store.isInWishlist(currentProduct.id);
+      const btn = document.getElementById('wishlistBtn');
+      
+      if (isWishlisted) {
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          في المفضلة
+        `;
+        btn.style.background = 'var(--gold)';
+        btn.style.color = 'white';
+        showToast('تمت الإضافة للمفضلة');
+      } else {
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          أضف للمفضلة
+        `;
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--gold)';
+        showToast('تمت الإزالة من المفضلة');
+      }
+    }
+    
+    function loadRelatedProducts() {
+      const related = store.getProducts()
+        .filter(p => p.id !== currentProduct.id && p.category === currentProduct.category)
+        .slice(0, 4);
+      
+      const grid = document.getElementById('relatedProducts');
+      grid.innerHTML = related.map(product => `
+        <div class="product-card" onclick="window.location.href='product.html?id=${product.id}'">
+          <div class="product-image">
+            <img src="${product.images[0]}" alt="${product.name}">
+            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+          </div>
+          <div class="product-info">
+            <div class="product-brand">${product.brand}</div>
+            <h3 class="product-name">${product.name}</h3>
+            <div class="product-category">${product.category} - ${product.size}</div>
+            <div class="product-price">
+              <span class="current">${formatPrice(product.price)}</span>
+              ${product.oldPrice ? `<span class="old">${formatPrice(product.oldPrice)}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    // Cart functions
+    function toggleCart() {
+      const sidebar = document.getElementById('cartSidebar');
+      const overlay = document.getElementById('cartOverlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+      if (sidebar.classList.contains('active')) renderCartItems();
+    }
+    
+    function renderCartItems() {
+      const container = document.getElementById('cartItems');
+      const cart = store.cart;
+      
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <h3>السلة فارغة</h3>
+          </div>
+        `;
+      } else {
+        container.innerHTML = cart.map(item => {
+          const product = store.getProductById(item.productId);
+          if (!product) return '';
+          return `
+            <div class="cart-item">
+              <div class="cart-item-image">
+                <img src="${product.images[0]}" alt="${product.name}">
+              </div>
+              <div class="cart-item-info">
+                <h4>${product.name}</h4>
+                <p>${product.brand}</p>
+                <div class="price">${formatPrice(product.price * item.quantity)}</div>
+              </div>
+              <button class="cart-item-remove" onclick="removeFromCart(${item.productId})">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+      updateCartUI();
+    }
+    
+    function removeFromCart(productId) {
+      store.removeFromCart(productId);
+      renderCartItems();
+    }
+    
+    function updateCartUI() {
+      document.getElementById('cartCount').textContent = store.cart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalEl = document.getElementById('cartTotal');
+      if (totalEl) totalEl.textContent = formatPrice(store.getCartTotal());
+    }
+    
+    function checkout() {
+      if (!store.currentUser) {
+        showToast('يرجى تسجيل الدخول أولاً');
+        window.location.href = 'login.html';
+        return;
+      }
+      if (store.cart.length === 0) {
+        showToast('السلة فارغة');
+        return;
+      }
+      const address = prompt('أدخل عنوان التوصيل:');
+      if (address) {
+        const order = store.createOrder(address);
+        toggleCart();
+        showToast(`تم إنشاء الطلب ${order.id} بنجاح!`);
+      }
+    }
+    
+    function updateUserUI() {
+      const dropdown = document.getElementById('userDropdown');
+      const user = store.currentUser;
+      
+      if (user) {
+        dropdown.innerHTML = `
+          <a href="${user.role === 'admin' ? 'admin.html' : 'dashboard.html'}">لوحة التحكم</a>
+          <a href="#" onclick="store.logout(); location.reload();">تسجيل خروج</a>
+        `;
+      } else {
+        dropdown.innerHTML = `<a href="login.html">تسجيل الدخول</a>`;
+      }
+    }
+    
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').textContent = message;
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
