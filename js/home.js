@@ -275,7 +275,7 @@ const chatFlow = [
   },
   {
     message: 'ما هي ميزانيتك التقريبية؟',
-    options: ['أقل من 300 ر.س', '300 - 500 ر.س', 'أكثر من 500 ر.س']
+    options: ['أقل من 300 ش.ج', '300 - 500 ش.ج', 'أكثر من 500 ش.ج']
   }
 ];
 
@@ -372,11 +372,11 @@ function generateRecommendation() {
   
   // Filter by budget
   const budget = prefs.step4;
-  if (budget === 'أقل من 300 ر.س') {
+  if (budget === 'أقل من 300 ش.ج') {
     products = products.filter(p => p.price < 300);
-  } else if (budget === '300 - 500 ر.س') {
+  } else if (budget === '300 - 500 ش.ج') {
     products = products.filter(p => p.price >= 300 && p.price <= 500);
-  } else if (budget === 'أكثر من 500 ر.س') {
+  } else if (budget === 'أكثر من 500 ش.ج') {
     products = products.filter(p => p.price > 500);
   }
   

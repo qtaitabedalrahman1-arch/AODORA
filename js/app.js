@@ -7,253 +7,123 @@ const samplePerfumes = [
   {
     id: 1,
     name: "عود ملكي",
-    brand: "Arabian Oud",
+    brand: "AODORA",
     category: "رجالي",
-    price: 450,
-    oldPrice: 550,
-    description: "عطر عود ملكي فاخر بمزيج من العود الكمبودي والعنبر الدافئ مع لمسات من الورد الطائفي. رائحة ثابتة وجذابة تدوم طويلاً.",
+    price: 150 ,
+    oldPrice: 250,
+    description: "عطر عود ملكي فاخر بمزيج من العود الكمبودي والعنبر الدافئ مع لمسات من الورد الطائفي. رائحة ثابتة وجذابة تدوم طويلتوليفة ساحرة تجمع بين أصالة الماضي وفخامة الحاضر. يبدأ العطر بنفحات دافئة من العود المعتق الذي يمنحك حضوراً طاغياً لا يُنسى، مع لمسات خشبية عميقة تعكس شخصية الرجل الواثق والقيادي.",
     notes: {
       top: "الزعفران، الهيل",
       middle: "العود الكمبودي، الورد الطائفي",
       base: "العنبر، المسك الأبيض"
     },
-    size: "100ml",
+    size: "120ml",
     concentration: "Eau de Parfum",
     rating: 4.8,
     reviews: 124,
     stock: 15,
     badge: "الأكثر مبيعاً",
     images: [
-      "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400",
-      "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400",
-      "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400"
+      "images/royal.jpeg",
+      
     ]
   },
   {
     id: 2,
-    name: "مسك الليل",
-    brand: "Ajmal",
+    name: "Lueur d’Or",
+    brand: "AODORA",
     category: "نسائي",
-    price: 320,
+    price: 150,
     oldPrice: null,
-    description: "عطر مسك الليل الساحر بتركيبة فريدة من المسك الأبيض الناعم مع الياسمين والفانيليا. مثالي للمناسبات الخاصة.",
+    description: "عطر يجسد التوازن المثالي بين الأناقة الباريسية وسحر الشرق الغامض. يبدأ بنسمات منعشة تقودك إلى قلب من الياسمين النقي، وينتهي بقاعدة دافئة تترك أثراً لا يُنسى. هو عطرالمناسبات الخاصة والشخصيات التي تبحث عن الفخامة والتميز.",
     notes: {
-      top: "البرغموت، الياسمين",
-      middle: "المسك الأبيض، زهرة اللوتس",
-      base: "الفانيليا، خشب الصندل"
+      top:" البرغموت، الكمثرى، ولمسة خفيفة من الزعفران",
+      middle: "الياسمين الغني، مسك الروم، وزهر البرتقال",
+
+      base: "لعنبر، الياسمين ، والمسك الأبيض"
     },
-    size: "75ml",
+    size: "120ml",
     concentration: "Eau de Parfum",
     rating: 4.6,
     reviews: 89,
     stock: 22,
     badge: "جديد",
     images: [
-      "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400",
-      "https://images.unsplash.com/photo-1595425964071-2c1ecff1f688?w=400",
-      "https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=400"
+      "images/lueur.jpeg",
     ]
   },
   {
     id: 3,
-    name: "بخور السلطان",
-    brand: "Rasasi",
+    name: "Noir Impact (الأثر الأسود)",
+    brand: "AODORA",
     category: "رجالي",
-    price: 580,
-    oldPrice: 700,
-    description: "عطر فاخر مستوحى من البخور العربي الأصيل. يجمع بين قوة العود وأناقة التوابل الشرقية.",
+    price: 150,
+    oldPrice: 200,
+    description: "يأتي العطر في زجاجة شفافة فاخرة تبرز نقاء المزيج العطري، وتحمل شعار Aodora الذهبي الذي يجمع بين الروح الفرنسية والجوهر الشرقي. هذا العطر مصمم ليترك أثراً قوياً (Noir Impact) بفضل تركيبته التي توازن بين حلاوة الفاكهة وعمق الأخشاب.",
     notes: {
-      top: "الزنجبيل، الفلفل الوردي",
-      middle: "العود، الحبهان",
-      base: "الراتنج، خشب الأرز"
+      top:" التفاح الحلو المنعش مع أوراق الشجر الخضراء (Davana)",
+      middle: "عبير وردة الداماسك الفاخرة، الأوسمانثوس، ولمسة من الألبانوم.",
+      base:" عمق دافئ من الفانيليا السوداء، حبوب التونكا، وقوة خشب الأرز"
     },
-    size: "100ml",
+    size: "120ml",
     concentration: "Parfum",
     rating: 4.9,
     reviews: 156,
     stock: 8,
     badge: "حصري",
     images: [
-      "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400",
-      "https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=400",
-      "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?w=400"
+            "images/noir.jpeg",
+
     ]
   },
   {
     id: 4,
-    name: "زهرة دمشق",
-    brand: "Swiss Arabian",
+    name: "Velvet Aura",
+    brand: "AODORA",
     category: "نسائي",
-    price: 280,
+    price: 170,
     oldPrice: null,
-    description: "عطر رومانسي يحتفي بجمال الورد الدمشقي الأصيل. رائحة ناعمة ومؤنثة تفوح بالأناقة.",
+    description: "عطر نسائي فاخر يجسد الأنوثة الساحرة والجرأة المغرية. مزيج فريد من الورد الدمشقي، الفاوانيا، والمسك الأبيض يخلق هالة مخملية تأسر الحواس وتترك أثراً لا يُنسى. مناسب للسهرات والمناسبات الخاصة حيث تبرز شخصيتك بثقة وأناقة.",
     notes: {
-      top: "الورد الدمشقي، الخوخ",
-      middle: "الفاوانيا، زنبق الوادي",
-      base: "المسك، العنبر الأبيض"
+      top: "انتعاش عشبي فوار يأخذك إلى الطبيعة مباشرة",
+
+      middle: "جوهر اللافندر الصافي الذي يوازن بين البرودة والدافئ.",
+      base: " لمسات خشبية أو مسكية ناعمة تضمن ثبات الأناقة لساعات طويلة.",
     },
-    size: "80ml",
+    size: "120ml",
     concentration: "Eau de Parfum",
     rating: 4.7,
     reviews: 67,
     stock: 30,
     badge: null,
     images: [
-      "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400",
-      "https://images.unsplash.com/photo-1595425964071-2c1ecff1f688?w=400",
-      "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400"
+      "images/velvet.jpeg",
     ]
   },
   {
     id: 5,
-    name: "عنبر ذهبي",
-    brand: "Abdul Samad Al Qurashi",
+    name: "L'Horizon (الأفق)",
+    brand: "AODORA",
     category: "للجنسين",
-    price: 650,
-    oldPrice: 800,
-    description: "تحفة عطرية من العنبر الذهبي النادر مع العود الهندي. عطر فاخر للمناسبات الخاصة والأوقات المميزة.",
+    price: 130,
+    oldPrice: 200,
+    description: "طاقة الحمضيات ونعومة المسك يمنح شعور فوري بالنظافة والراحة النفسية وهو الخيار المثالي لمن يبحث عن رائحة راقية غير مزعة وتناسب كلا الجنسين في كافة الاوقات ",
     notes: {
-      top: "العنبر، الزعفران",
-      middle: "العود الهندي، خشب الصندل",
-      base: "المسك الذهبي، الفانيليا"
+      top: "الليمون الصقلي، الشاي الأخضر.",
+      middle: " الياسمين، المتّي (Mate)",
+      base: "طحلب لبلوط  المسك"
     },
-    size: "100ml",
+    size: "120ml",
     concentration: "Parfum",
     rating: 4.9,
     reviews: 201,
     stock: 5,
     badge: "نادر",
     images: [
-      "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400",
-      "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400",
-      "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400"
+      "images/lihorizon.jpeg",
     ]
   },
-  {
-    id: 6,
-    name: "ليلة عربية",
-    brand: "Lattafa",
-    category: "نسائي",
-    price: 180,
-    oldPrice: 220,
-    description: "عطر شرقي ساحر يأخذك في رحلة إلى ليالي الشرق الدافئة. مزيج مثالي من الزهور والتوابل.",
-    notes: {
-      top: "الزهور البيضاء، البرغموت",
-      middle: "القرنفل، الورد",
-      base: "الباتشولي، الفانيليا"
-    },
-    size: "100ml",
-    concentration: "Eau de Parfum",
-    rating: 4.4,
-    reviews: 312,
-    stock: 45,
-    badge: "الأفضل قيمة",
-    images: [
-      "https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=400",
-      "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400",
-      "https://images.unsplash.com/photo-1595425964071-2c1ecff1f688?w=400"
-    ]
-  },
-  {
-    id: 7,
-    name: "صحراء العود",
-    brand: "Arabian Oud",
-    category: "رجالي",
-    price: 520,
-    oldPrice: null,
-    description: "استوحي من رمال الصحراء الذهبية وليالي البادية. عطر قوي وجريء يعكس روح الرجل الشرقي.",
-    notes: {
-      top: "الكمون، الزعفران",
-      middle: "العود، التبغ",
-      base: "الجلد، خشب الأرز"
-    },
-    size: "100ml",
-    concentration: "Eau de Parfum",
-    rating: 4.7,
-    reviews: 98,
-    stock: 18,
-    badge: null,
-    images: [
-      "https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=400",
-      "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400",
-      "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?w=400"
-    ]
-  },
-  {
-    id: 8,
-    name: "لؤلؤة الخليج",
-    brand: "Ajmal",
-    category: "نسائي",
-    price: 350,
-    oldPrice: 420,
-    description: "عطر مستوحى من جمال لآلئ الخليج العربي. إشراقة من الأزهار البيضاء مع نفحات بحرية منعشة.",
-    notes: {
-      top: "نسيم البحر، الليمون",
-      middle: "الغاردينيا، زهر البرتقال",
-      base: "المسك البحري، خشب الصندل"
-    },
-    size: "75ml",
-    concentration: "Eau de Parfum",
-    rating: 4.5,
-    reviews: 145,
-    stock: 25,
-    badge: "مميز",
-    images: [
-      "https://images.unsplash.com/photo-1595425964071-2c1ecff1f688?w=400",
-      "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400",
-      "https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=400"
-    ]
-  },
-  {
-    id: 9,
-    name: "توباكو فانيلا",
-    brand: "Rasasi",
-    category: "للجنسين",
-    price: 290,
-    oldPrice: null,
-    description: "مزيج دافئ وجذاب من أوراق التبغ الفاخرة والفانيليا الكريمية. عطر مثالي للأجواء الشتوية.",
-    notes: {
-      top: "التوابل، أوراق التبغ",
-      middle: "حبوب التونكا، الكاكاو",
-      base: "الفانيليا، العنبر"
-    },
-    size: "100ml",
-    concentration: "Eau de Parfum",
-    rating: 4.6,
-    reviews: 178,
-    stock: 32,
-    badge: null,
-    images: [
-      "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?w=400",
-      "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400",
-      "https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=400"
-    ]
-  },
-  {
-    id: 10,
-    name: "سحر الياسمين",
-    brand: "Swiss Arabian",
-    category: "نسائي",
-    price: 240,
-    oldPrice: 290,
-    description: "احتفاء بجمال الياسمين العربي الأصيل. عطر ناعم وأنثوي يفيض بالرومانسية والأناقة.",
-    notes: {
-      top: "الياسمين، زهر البرتقال",
-      middle: "التوبيروز، الورد",
-      base: "المسك الأبيض، خشب الصندل"
-    },
-    size: "80ml",
-    concentration: "Eau de Parfum",
-    rating: 4.8,
-    reviews: 234,
-    stock: 28,
-    badge: "رائج",
-    images: [
-      "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400",
-      "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400",
-      "https://images.unsplash.com/photo-1595425964071-2c1ecff1f688?w=400"
-    ]
-  }
+  
 ];
 
 // Sample Users Data
@@ -284,7 +154,7 @@ const sampleOrders = [
     userName: "سارة أحمد",
     items: [
       { productId: 1, name: "عود ملكي", quantity: 1, price: 450 },
-      { productId: 4, name: "زهرة دمشق", quantity: 2, price: 280 }
+      { productId: 4, name: "Velvet Aura", quantity: 2, price: 280 }
     ],
     total: 1010,
     status: "delivered",
@@ -644,7 +514,7 @@ const icons = {
 
 // Format Price
 function formatPrice(price) {
-  return `${price} ر.س`;
+  return `${price}ش.ج  `;
 }
 
 // Get Status Label
